@@ -4,7 +4,7 @@ namespace CQRS.Core.Handlers;
 
 public interface IEventSourcingHandler<T>
 {
-    Task SaveAsync(AggregateRoot aggregateRoot);
-    Task<T> GetByIdAsync(Guid id);
-    
+    Task SaveAsync(AggregateRoot aggregate);
+    Task<T> GetByIdAsync(Guid aggregateId);
+
 }
