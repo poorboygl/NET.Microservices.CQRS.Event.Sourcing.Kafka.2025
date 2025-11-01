@@ -9,5 +9,5 @@ public abstract class BaseEvent : Message
         this.Type = type;
     }
     public int Version { get; set; }
-    public required string Type { get; set; }
+    public string Type { get; set; } = string.Empty;
 }
