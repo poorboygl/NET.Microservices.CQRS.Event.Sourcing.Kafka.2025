@@ -75,3 +75,18 @@ dotnet add Post.Query/Post.Query.Infrastructure/Post.Query.Infrastructure.csproj
 dotnet add Post.Cmd/Post.Cmd.Infrastructure/Post.Cmd.Infrastructure.csproj reference Post.Cmd/Post.Cmd.Domain/Post.Cmd.Domain.csproj
 
 dotnet add Post.Query/Post.Query.Infrastructure/Post.Query.Infrastructure.csproj reference Post.Query/Post.Query.Domain/Post.Query.Domain.csproj
+
+ch10
+
+Use SocialMedia
+GO
+
+IF NOT EXISTS(SELECT * FROM sys.server_principals where name = 'SMUser')
+BEGIN
+    CREATE LOGIN SMUser WITH PASSWORD=N'SmPA$$06500', DEFAULT_DATABASE=SocialMedia
+END
+
+IF NOT EXISTS(SELECT * FROM sys.server_principals where name = 'SMUser')
+BEGIN
+    EXEC sp_adduser 'SMUser', 'SMUser', 'db_owner';
+END

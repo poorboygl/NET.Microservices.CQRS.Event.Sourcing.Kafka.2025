@@ -9,6 +9,10 @@ builder.Services.AddSingleton<DatabaseContextFactory>(new DatabaseContextFactory
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 
+//Create database and tables from codes
+var dataContext = builder.Services.BuildServiceProvider().GetRequiredService<DatabaseContext>();
+dataContext.Database.EnsureCreated();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
