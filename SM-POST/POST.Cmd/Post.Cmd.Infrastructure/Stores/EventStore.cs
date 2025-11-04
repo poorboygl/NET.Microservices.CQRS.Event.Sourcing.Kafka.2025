@@ -13,7 +13,7 @@ public class EventStore(IEventStoreRepository eventStoreRepository, IEventProduc
     {
         var eventSteam = await eventStoreRepository.FindByAggregateId(aggregateId);
 
-        if (eventSteam == null || eventSteam.Any())
+        if (eventSteam == null || eventSteam.Count == 0)
         {
             throw new AggregateNotFoundException("InCorrect post ID provided!");
         }

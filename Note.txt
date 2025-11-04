@@ -94,6 +94,7 @@ END
  docker-compose down -v 
  docker compose up
 
+http://localhost:5010/api/v1/newPost
  {
     "author": "John Doe",
     "message":"#CQRS and #EventSourcing are amazing #Microservices design patterns!"
@@ -102,3 +103,9 @@ END
 docker exec -it kafka kafka-topics --create  --bootstrap-server localhost:9093  --topic SocialMediaPostEvents  --partitions 1 --replication-factor 1
 
 docker exec -it kafka kafka-topics --bootstrap-server localhost:9093 --list
+
+http://localhost:5010/api/v1/editMessage/e8979808-558d-40fd-acbf-4835dd8feb5f
+
+{
+    "message":"Updated #Microservices design patterns!"
+}
