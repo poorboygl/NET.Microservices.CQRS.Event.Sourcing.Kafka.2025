@@ -1,11 +1,11 @@
 using CQRS.Core.Domain;
 using CQRS.Core.Handlers;
+using CQRS.Core.Infrastructure;
 using Post.Cmd.Domain.Aggregates;
-using Post.Cmd.Infrastructure.Stores;
 
 namespace Post.Cmd.Infrastructure.Handlers;
 
-public class EventSourcingHandler(EventStore eventStore) : IEventSourcingHandler<PostAggregate>
+public class EventSourcingHandler(IEventStore eventStore) : IEventSourcingHandler<PostAggregate>
 {
     public async Task<PostAggregate> GetByIdAsync(Guid aggregateId)
     {

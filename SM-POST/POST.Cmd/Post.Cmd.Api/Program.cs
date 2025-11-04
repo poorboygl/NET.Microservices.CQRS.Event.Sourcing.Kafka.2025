@@ -36,12 +36,12 @@ dispatcher.RegisterHandler<RemoveCommentCommand>(commandHandler.HandleAsync);
 dispatcher.RegisterHandler<DeletePostCommand>(commandHandler.HandleAsync);
 builder.Services.AddSingleton<ICommandDispatcher>(_ => dispatcher);
 
-
+builder.Services.AddControllers();
 
 var app = builder.Build();
-
+app.UseHttpsRedirection();
 // Configure the HTTP request pipeline.
-
+app.MapControllers();
 
 app.Run();
 

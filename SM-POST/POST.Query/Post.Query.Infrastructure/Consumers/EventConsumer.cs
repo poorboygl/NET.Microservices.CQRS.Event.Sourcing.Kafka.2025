@@ -16,30 +16,67 @@ public class EventConsumer(IOptions<ConsumerConfig> config, IEventHandler eventH
     public void Consumer(string topic)
     {
         using var consumer = new ConsumerBuilder<string, string>(_config)
-                                 .SetKeyDeserializer(Deserializers.Utf8)
-                                 .SetValueDeserializer(Deserializers.Utf8)
-                                 .Build();
+            .SetKeyDeserializer(Deserializers.Utf8)
+            .SetValueDeserializer(Deserializers.Utf8)
+            .Build();
 
         consumer.Subscribe(topic);
 
+        Console.WriteLine($"🟢 Kafka consumer started. Subscribed to topic: {topic}");
+
         while (true)
         {
-            var consumerResult = consumer.Consume();
-
-            if (consumerResult?.Message == null) continue;
-
-            var options = new JsonSerializerOptions { Converters = { new EventJsonConverter() } };
-            var @event = JsonSerializer.Deserialize<BaseEvent>(consumerResult.Message.Value, options);
-            var handlerMethod = _eventHandler.GetType().GetMethod("On", new Type[] { @event.GetType() });
-
-            if (handlerMethod == null)
+            try
             {
-                throw new ArgumentException(nameof(handlerMethod), "Could not find event handler method!");
+                //Dev-Test
+                var consumerResult = consumer.Consume(TimeSpan.FromSeconds(2));
+
+                //Product
+                // var consumerResult = consumer.Consume(TimeSpan.FromMilliseconds(500);
+
+                if (consumerResult == null) continue;
+                if (consumerResult.Message == null) continue;
+
+                var options = new JsonSerializerOptions { Converters = { new EventJsonConverter() } };
+                var @event = JsonSerializer.Deserialize<BaseEvent>(consumerResult.Message.Value, options);
+
+                // var handlerMethod = _eventHandler.GetType().GetMethod("On", new[] { @event.GetType() });
+                var handlerMethod = _eventHandler.GetType().GetMethod("On", [@event.GetType()]);
+                if (handlerMethod == null)
+                {
+                    Console.WriteLine($"⚠️ No handler found for {@event.GetType().Name}");
+                    continue;
+                }
+
+                handlerMethod.Invoke(_eventHandler, new object[] { @event });
+                consumer.Commit(consumerResult);
+
+                Console.WriteLine($"✅ Consumed event {@event.GetType().Name} from offset {consumerResult.Offset}");
             }
+            catch (ConsumeException ex)
+            {
+                // No topic- or Kafka is not ready
+                if (ex.Error.Reason.Contains("Unknown topic or partition"))
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine($"⚠️ Kafka topic '{topic}' does not exist yet. Waiting 5 seconds before retrying...");
+                    Console.ResetColor();
+                    Thread.Sleep(5000);
+                    continue;
+                }
 
-            handlerMethod.Invoke(_eventHandler, new object[] { @event });
-            consumer.Commit(consumerResult);
-
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"❌ Kafka consume error: {ex.Error.Reason}");
+                Console.ResetColor();
+                Thread.Sleep(2000);
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"❌ Unhandled consumer error: {ex.Message}");
+                Console.ResetColor();
+                Thread.Sleep(2000);
+            }
         }
     }
 }

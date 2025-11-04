@@ -1,0 +1,324 @@
+[
+  {
+    "location": "/CQRS-ES/CQRS.Core/Domain/AggregateRoot.cs",
+    "line": [
+      {
+        "line": 19,
+        "character": 0
+      },
+      {
+        "line": 19,
+        "character": 0
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "location": "/CQRS-ES/CQRS.Core/Domain/AggregateRoot.cs",
+    "line": [
+      {
+        "line": 24,
+        "character": 0
+      },
+      {
+        "line": 24,
+        "character": 0
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "location": "/CQRS-ES/CQRS.Core/Domain/AggregateRoot.cs",
+    "line": [
+      {
+        "line": 29,
+        "character": 0
+      },
+      {
+        "line": 29,
+        "character": 0
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "location": "/CQRS-ES/CQRS.Core/Domain/AggregateRoot.cs",
+    "line": [
+      {
+        "line": 47,
+        "character": 0
+      },
+      {
+        "line": 47,
+        "character": 0
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "location": "/SM-POST/Post.Cmd/Post.Cmd.Infrastructure/Dispatchers/CommandDispatcher.cs",
+    "line": [
+      {
+        "line": 22,
+        "character": 0
+      },
+      {
+        "line": 22,
+        "character": 0
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "location": "/SM-POST/Post.Cmd/Post.Cmd.Api/Commands/CommandHandler.cs",
+    "line": [
+      {
+        "line": 9,
+        "character": 0
+      },
+      {
+        "line": 9,
+        "character": 0
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "location": "/SM-POST/Post.Query/Post.Query.Infrastructure/Consumers/ConsumerHostedService.cs",
+    "line": [
+      {
+        "line": 11,
+        "character": 0
+      },
+      {
+        "line": 11,
+        "character": 0
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "location": "/SM-POST/Post.Query/Post.Query.Infrastructure/Consumers/EventConsumer.cs",
+    "line": [
+      {
+        "line": 17,
+        "character": 0
+      },
+      {
+        "line": 17,
+        "character": 0
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "location": "/SM-POST/Post.Query/Post.Query.Infrastructure/Consumers/EventConsumer.cs",
+    "line": [
+      {
+        "line": 30,
+        "character": 0
+      },
+      {
+        "line": 30,
+        "character": 0
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "location": "/SM-POST/Post.Query/Post.Query.Infrastructure/Handlers/EventHandler.cs",
+    "line": [
+      {
+        "line": 10,
+        "character": 0
+      },
+      {
+        "line": 10,
+        "character": 0
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "location": "/SM-POST/Post.Cmd/Post.Cmd.Infrastructure/Producers/EventProducer.cs",
+    "line": [
+      {
+        "line": 21,
+        "character": 0
+      },
+      {
+        "line": 21,
+        "character": 0
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "location": "/SM-POST/Post.Cmd/Post.Cmd.Infrastructure/Producers/EventProducer.cs",
+    "line": [
+      {
+        "line": 26,
+        "character": 0
+      },
+      {
+        "line": 26,
+        "character": 0
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "location": "/SM-POST/Post.Cmd/Post.Cmd.Infrastructure/Handlers/EventSourcingHandler.cs",
+    "line": [
+      {
+        "line": 23,
+        "character": 0
+      },
+      {
+        "line": 23,
+        "character": 0
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "location": "/SM-POST/Post.Cmd/Post.Cmd.Infrastructure/Stores/EventStore.cs",
+    "line": [
+      {
+        "line": 26,
+        "character": 0
+      },
+      {
+        "line": 26,
+        "character": 0
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "location": "/SM-POST/Post.Cmd/Post.Cmd.Infrastructure/Stores/EventStore.cs",
+    "line": [
+      {
+        "line": 50,
+        "character": 0
+      },
+      {
+        "line": 50,
+        "character": 0
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "location": "/SM-POST/Post.Cmd/Post.Cmd.Infrastructure/Stores/EventStore.cs",
+    "line": [
+      {
+        "line": 53,
+        "character": 0
+      },
+      {
+        "line": 53,
+        "character": 0
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "location": "/SM-POST/Post.Cmd/Post.Cmd.Infrastructure/Repositories/EventStoreRepository.cs",
+    "line": [
+      {
+        "line": 21,
+        "character": 0
+      },
+      {
+        "line": 21,
+        "character": 0
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "location": "/SM-POST/Post.Cmd/Post.Cmd.Infrastructure/Repositories/EventStoreRepository.cs",
+    "line": [
+      {
+        "line": 26,
+        "character": 0
+      },
+      {
+        "line": 26,
+        "character": 0
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "location": "/SM-POST/Post.Cmd/Post.Cmd.Api/Controllers/NewPostController.cs",
+    "line": [
+      {
+        "line": 16,
+        "character": 0
+      },
+      {
+        "line": 16,
+        "character": 0
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "location": "/SM-POST/Post.Cmd/Post.Cmd.Domain/Aggregates/PostAggregate.cs",
+    "line": [
+      {
+        "line": 26,
+        "character": 0
+      },
+      {
+        "line": 26,
+        "character": 0
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "location": "/SM-POST/Post.Cmd/Post.Cmd.Domain/Aggregates/PostAggregate.cs",
+    "line": [
+      {
+        "line": 38,
+        "character": 0
+      },
+      {
+        "line": 38,
+        "character": 0
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "location": "/SM-POST/Post.Query/Post.Query.Infrastructure/Repositories/PostRepository.cs",
+    "line": [
+      {
+        "line": 11,
+        "character": 0
+      },
+      {
+        "line": 11,
+        "character": 0
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "location": "/SM-POST/Post.Query/Post.Query.Infrastructure/Repositories/PostRepository.cs",
+    "line": [
+      {
+        "line": 13,
+        "character": 0
+      },
+      {
+        "line": 13,
+        "character": 0
+      }
+    ],
+    "enabled": true
+  }
+]
