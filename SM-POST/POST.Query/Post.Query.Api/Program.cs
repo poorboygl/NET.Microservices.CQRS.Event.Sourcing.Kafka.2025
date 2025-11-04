@@ -25,6 +25,9 @@ builder.Services.AddScoped<IEventHandler, Post.Query.Infrastructure.Handlers.Eve
 
 builder.Services.Configure<ConsumerConfig>(builder.Configuration.GetSection(nameof(ConsumerConfig)));
 builder.Services.AddScoped<IEventConsumer, EventConsumer>();
+
+builder.Services.AddHostedService<ConsumerHostedService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
