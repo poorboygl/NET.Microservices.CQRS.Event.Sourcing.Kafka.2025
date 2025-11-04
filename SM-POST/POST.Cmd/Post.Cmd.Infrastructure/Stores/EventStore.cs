@@ -15,7 +15,7 @@ public class EventStore(IEventStoreRepository eventStoreRepository, IEventProduc
 
         if (eventSteam == null || eventSteam.Count == 0)
         {
-            throw new AggregateNotFoundException("InCorrect post ID provided!");
+            throw new AggregateNotFoundException("Incorrect post ID provided!");
         }
 
         // return eventSteam.OrderBy(x => x.Version).Select(x => x.EventData).ToList();
