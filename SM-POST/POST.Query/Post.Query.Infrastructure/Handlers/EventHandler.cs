@@ -45,7 +45,8 @@ public class EventHandler(IPostRepository postRepository, ICommentRepository com
             PostId = @event.Id,
             CommentId = @event.CommentId,
             CommentDate = @event.CommentDate,
-            Comment = @event.Username,
+            Comment = @event.Comment,
+            UserName = @event.Username,
             Edited = false
         };
 

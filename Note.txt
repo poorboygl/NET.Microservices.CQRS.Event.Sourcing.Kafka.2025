@@ -111,3 +111,10 @@ PUT http://localhost:5010/api/v1/editMessage/e8979808-558d-40fd-acbf-4835dd8feb5
 }
 
 PUT http://localhost:5010/api/v1/likePost/e8979808-558d-40fd-acbf-4835dd8feb5f
+
+PUT http://localhost:5010/api/v1/addComment/e8979808-558d-40fd-acbf-4835dd8feb5f
+
+{
+    "comment":"I couldn't agree more",
+    "username":"Smart Engineer"
+}
