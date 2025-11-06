@@ -9,6 +9,19 @@ namespace Post.Cmd.Infrastructure.Stores;
 
 public class EventStore(IEventStoreRepository eventStoreRepository, IEventProducer eventProducer) : IEventStore
 {
+    public async Task<List<Guid>> GetAggregateIdsAsync()
+    {
+        var eventSteam = await eventStoreRepository.FindAllAsync();
+
+        if (eventSteam == null || eventSteam.Count == 0)
+        {
+            throw new ArgumentNullException(nameof(eventSteam), "Could not retrieve event stream from the event store!");
+        }
+
+        //return eventSteam.Select(x => x.AggregateIdentifier).Distinct().ToList();
+        return [.. eventSteam.Select(x => x.AggregateIdentifier).Distinct()];
+    }
+
     public async Task<List<BaseEvent>> GetEventsAsync(Guid aggregateId)
     {
         var eventSteam = await eventStoreRepository.FindByAggregateId(aggregateId);
@@ -51,7 +64,7 @@ public class EventStore(IEventStoreRepository eventStoreRepository, IEventProduc
             await eventStoreRepository.SaveAsync(eventModel);
 
             var topic = Environment.GetEnvironmentVariable("KAFKA_TOPIC");
-            await eventProducer.ProduceAsync(topic, @event);
+            await eventProducer.ProduceAsync(topic!, @event);
         }
     }
 }
