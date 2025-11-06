@@ -12,7 +12,6 @@ public class RestoreReadDbController(ILogger<NewPostController> logger, ICommand
     [HttpPost]
     public async Task<ActionResult> RestoreReadDbAsync()
     {
-        var id = Guid.NewGuid();
         try
         {
             await commandDispatcher.SendAsync(new RestoreReadDbCommand());
