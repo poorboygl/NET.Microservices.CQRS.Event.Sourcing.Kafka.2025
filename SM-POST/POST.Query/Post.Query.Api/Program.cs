@@ -42,9 +42,11 @@ dispatcher.RegisterHandler<FindPostsWithLikesQuery>(queryHandler.HandleAsync);
 builder.Services.AddSingleton<IQueryDispatcher<PostEntity>>(_ => dispatcher);
 
 builder.Services.AddHostedService<ConsumerHostedService>();
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
+app.MapControllers();
 // Configure the HTTP request pipeline.
 
 app.Run();

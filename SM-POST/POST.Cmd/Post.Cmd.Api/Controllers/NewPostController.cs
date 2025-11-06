@@ -22,6 +22,7 @@ public class NewPostController(ILogger<NewPostController> logger, ICommandDispat
 
             return StatusCode(StatusCodes.Status201Created, new NewPostResponse
             {
+                Id = id,
                 Message = "New post creation request completed successfully!"
             });
 

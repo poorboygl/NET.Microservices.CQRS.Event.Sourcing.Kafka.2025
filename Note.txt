@@ -142,3 +142,25 @@ DEL http://localhost:5010/api/v1/deletePost/e8979808-558d-40fd-acbf-4835dd8feb5f
 }
 
 Delete.Cascade. Delete the post, delete all comments. Because of that constraint
+
+ch16
+POST http://localhost:5010/api/v1/newPost/
+{
+    "author":"WiseOne",
+    "message":"Principles are super important. Do not be content with just knowing how to cde, ask why. Why takes your software engineering career to the next level!"
+}
+
+POST http://localhost:5010/api/v1/likePost/14e26378-6561-483c-8aba-14a65d054fc7
+
+POST http://localhost:5010/api/v1/addComment/14e26378-6561-483c-8aba-14a65d054fc7
+{
+    "comment":"Mmmm, good point. I always just wanted to know hơ to code, but knowing why will give me a deeper insight to create robust software",
+    "username":"InspiredStudent"
+}
+{
+    "comment":"Thanks for sharing",
+    "username":"SomeoneRandom"
+}
+
+http://localhost:5011/api/v1/postLookUp
+http://localhost:5011/api/v1/postLookUp/byId/14e26378-6561-483c-8aba-14a65d054fc7
