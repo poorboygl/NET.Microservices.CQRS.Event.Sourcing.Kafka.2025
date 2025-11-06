@@ -63,10 +63,43 @@ services:
     networks:
       - mydockernetwork
 
+  postgresdb:
+    image: postgres:alpine3.16
+    container_name: postgresdb
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgresPsw
+      # - POSTGRES_DB=CustomerDb
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - mydockernetwork
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@zbuzz.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    restart: always
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/root/.pgadmin
+    networks:
+      - mydockernetwork
+
 volumes:
   mongodb_data_container:
     driver: local
   sql_data:
+    driver: local
+  postgres_data:
+    driver: local
+  pgadmin_data:
     driver: local
 
 networks:
